@@ -6,4 +6,7 @@ spec:
   tasks:
     - name: pipeline-hello-task
       taskRef:
-        name: hello-task
+		name: hello-task
+	- name: pipeline-source-to-image-task
+	  taskRef: 
+		name: source-to-image-task
