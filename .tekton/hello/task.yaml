@@ -9,9 +9,8 @@ spec:
       command:
         - echo
       args:
-      - "hello world"
+        - "hello world"
 ---
-
 apiVersion: tekton.dev/v1alpha1
 kind: Task
 metadata:
