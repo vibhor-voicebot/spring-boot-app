@@ -29,7 +29,7 @@ spec:
         default: Dockerfile
       - name: imageUrl
 		description: Url of image repository
-        default: index.io/remkohdev/spring-boot-app
+        default: remkohdev/spring-boot-app
       - name: imageTag
         description: Tag to apply to the built image
         default: "latest"
