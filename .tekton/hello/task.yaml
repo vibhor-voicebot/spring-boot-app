@@ -32,10 +32,10 @@ spec:
     - name: imageTag
       description: Tag to apply to the built image
       default: "latest"
-	steps:
-	  - name: build-and-push
-	    image: gcr.io/kaniko-project/executor
-		command:
+    steps:
+      - name: build-and-push
+        image: gcr.io/kaniko-project/executor
+        command:
 		  - /kaniko/executor
 		args:
 		- --dockerfile=$(inputs.params.pathToDockerFile)
