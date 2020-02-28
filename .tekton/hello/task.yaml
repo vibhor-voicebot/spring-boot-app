@@ -9,8 +9,10 @@ spec:
       command:
         - echo
       args:
-      - "hello world"
+	  - "hello world"
+
 ---
+
 apiVersion: tekton.dev/v1alpha1
 kind: Task
 metadata:
@@ -41,7 +43,9 @@ spec:
         - --dockerfile=$(inputs.params.pathToDockerFile)
         - --destination=$(inputs.params.imageUrl):$(inputs.params.imageTag)
         - --context=/workspace/git-source/$(inputs.params.pathToContext)
+
 ---
+
 apiVersion: tekton.dev/v1alpha1
 kind: Task
 metadata:
@@ -74,4 +78,4 @@ spec:
       args:
       - "apply"
       - "-f"
-      - "/workspace/git-source/$(inputs.params.pathToYamlFile)"
+	  - "/workspace/git-source/$(inputs.params.pathToYamlFile)"
