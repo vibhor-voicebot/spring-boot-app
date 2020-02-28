@@ -23,7 +23,7 @@ spec:
     params:
       - name: pathToContext
         description: The path to the build context, used by Kaniko - within the workspace
-        default: .
+        default: /workspace/gitsource/
       - name: pathToDockerFile
         description: The path to the dockerfile to build (relative to the context)
         default: Dockerfile
@@ -32,20 +32,13 @@ spec:
         default: remkohdev/spring-boot-app
       - name: imageTag
         description: Tag to apply to the built image
-		default: "latest"
-  outputs:
-    resources:
-      - name: builtImage
-        type: image
+        default: "latest"
   steps:
     - name: build-and-push
-	  image: gcr.io/kaniko-project/executor
-	  env:
-		- name: "DOCKER_CONFIG"
-          value: "/tekton/home/.docker/"
+      image: gcr.io/kaniko-project/executor
       command:
         - /kaniko/executor
       args:
         - --dockerfile=$(inputs.params.pathToDockerFile)
-        - --destination=$(outputs.resources.builtImage.url)
-        - --context=$(inputs.params.pathToContext)
+        - --destination=$(inputs.params.imageUrl):$(inputs.params.imageTag)
+        - --context=/workspace/gitsource/$(inputs.params.pathToContext)
