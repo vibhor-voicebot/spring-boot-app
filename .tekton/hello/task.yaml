@@ -24,7 +24,7 @@ spec:
       - name: pathToContext
         type: string
         description: The path to the build context, used by Kaniko - within the workspace
-        default: /workspace/gitsource/
+        default: /workspace/gitsource
       - name: pathToDockerFile
         type: string
         description: The path to the dockerfile to build (relative to the context)
@@ -32,7 +32,7 @@ spec:
       - name: imageUrl
         description: Url of image repository
         default: remkohdev/spring-boot-app
-	  - name: imageTag
+      - name: imageTag
         type: string
         description: Tag to apply to the built image
         default: latest
