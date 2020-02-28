@@ -18,7 +18,7 @@ metadata:
 spec:
   inputs:
     resources:
-      - name: git-source
+      - name: gitsource
         type: git
     params:
       - name: pathToContext
@@ -29,7 +29,6 @@ spec:
         default: Dockerfile
       - name: imageUrl
         description: Url of image repository
-        default: index.io/remkohdev/spring-boot-app
       - name: imageTag
         description: Tag to apply to the built image
         default: "latest"
@@ -41,4 +40,4 @@ spec:
       args:
         - --dockerfile=$(inputs.params.pathToDockerFile)
         - --destination=$(inputs.params.imageUrl):$(inputs.params.imageTag)
-        - --context=/workspace/git-source/$(inputs.params.pathToContext)
+        - --context=/workspace/gitsource/$(inputs.params.pathToContext)
