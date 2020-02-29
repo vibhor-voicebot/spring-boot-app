@@ -29,10 +29,12 @@ spec:
         type: string
         description: path to context
         default: .
-  outputs:
-    resources:
-      - name: builtImage
-        type: image
+      - name: imageUrl
+        description: url of image repository
+        default: docker.io/remkohdev/spring-boot-app
+      - name: imageTag
+        description: image tag
+        default: latest
   steps:
     - name: executor
       image: gcr.io/kaniko-project/executor:latest
@@ -40,7 +42,7 @@ spec:
         - /kaniko/executor
       args:
         - --dockerfile=${inputs.params.pathToDockerFile}
-        - --destination=${outputs.resources.builtImage.url}
+        - --destination=${inputs.params.imageUrl}:${inputs.params.imageTag}
         - --context=${inputs.params.pathToContext}
       env:
       - name: DOCKER_CONFIG
