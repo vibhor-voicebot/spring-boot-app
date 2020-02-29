@@ -18,17 +18,17 @@ metadata:
 spec:
   inputs:
     resources:
-      - name: docker-source
+      - name: git-source
         type: git
     params:
       - name: pathToDockerFile
         type: string 
         description: path to dockerfile
-        default: /workspace/docker-source/dockerfile
+        default: Dockerfile
       - name: pathToContext
         type: string
         description: path to context
-        default: /workspace/docker-source
+        default: .
   outputs:
     resources:
       - name: builtImage
