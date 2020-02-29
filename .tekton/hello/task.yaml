@@ -20,21 +20,6 @@ spec:
     resources:
       - name: src
         type: git
-    params:
-      - name: imageUrl
-        description: Url of image repository
-        default: remkohdev/spring-boot-app
-      - name: imageTag
-        type: string
-        description: Tag to apply to the built image
-        default: 1.0.0
-      - name: pathToDockerFile
-        description: The path to the dockerfile to build (relative to the context)
-        default: Dockerfile
-      - name: pathToContext
-        description:
-          The path to the build context
-      - default: .
   outputs:
     resources:
       - name: builtImage
@@ -45,6 +30,4 @@ spec:
       command:
         - /kaniko/executor
       args:
-      - --dockerfile=${params.pathToDockerFile}
       - --destination=${outputs.resources.builtImage.url}
-      - --context=/workspace/src/${params.pathToContext}
