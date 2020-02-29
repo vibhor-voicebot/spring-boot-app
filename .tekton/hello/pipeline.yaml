@@ -4,7 +4,7 @@ metadata:
   name: hello-pipeline
 spec:
   resources:
-	- name: git-source
+    - name: git-source
       type: git
   tasks:
   - name: pipeline-hello-task
