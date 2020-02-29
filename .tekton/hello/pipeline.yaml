@@ -3,6 +3,9 @@ kind: Pipeline
 metadata:
   name: hello-pipeline
 spec:
+  resources:
+	- name: git-source
+      type: git
   tasks:
   - name: pipeline-hello-task
     taskRef:
@@ -14,4 +17,4 @@ spec:
     resources:
       inputs:
         - name: git-source
-          resource: git-source
+		  resource: git-source
