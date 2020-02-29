@@ -25,9 +25,9 @@ spec:
         type: string 
         description: path to dockerfile
         default: /workspace/docker-source/dockerfile
-	  - name: pathToContext
-		type: string
-		description: path to context
+      - name: pathToContext
+        type: string
+        description: path to context
         default: /workspace/docker-source
   outputs:
     resources:
