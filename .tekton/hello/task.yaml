@@ -33,7 +33,7 @@ spec:
       - name: imageTag
         type: string
         description: Tag to apply to the built image
-        default: latest
+        default: 1.0.0
   steps:
     - name: build-and-push
       image: gcr.io/kaniko-project/executor
