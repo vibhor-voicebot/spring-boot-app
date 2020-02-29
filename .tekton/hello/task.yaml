@@ -16,10 +16,6 @@ kind: Task
 metadata:
   name: source-to-image-task
 spec:
-  inputs:
-    resources:
-      - name: src
-        type: git
   outputs:
     resources:
       - name: builtImage
