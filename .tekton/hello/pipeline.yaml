@@ -8,5 +8,6 @@ spec:
     taskRef:
       name: hello-task
   - name: pipeline-source-to-image-task
+    serviceAccountName: docker-auth
     taskRef:
       name: source-to-image-task

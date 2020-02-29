@@ -20,6 +20,9 @@ spec:
     resources:
       - name: builtImage
         type: image
+        params:
+        - name: url
+          value: docker.io/remkohdev/spring-boot-app:1.0.0
   steps:
     - name: executor
       image: gcr.io/kaniko-project/executor:latest
