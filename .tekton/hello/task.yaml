@@ -27,17 +27,17 @@ spec:
       - name: imageTag
         type: string
         description: Tag to apply to the built image
-		default: 1.0.0
+        default: 1.0.0
       - name: pathToDockerFile
         description: The path to the dockerfile to build (relative to the context)
         default: Dockerfile
       - name: pathToContext
         description:
-		  The path to the build context
+          The path to the build context
       - default: .
   outputs:
-	resources:
-	  - name: builtImage
+    resources:
+      - name: builtImage
         type: image
   steps:
     - name: executor
