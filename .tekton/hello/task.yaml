@@ -36,12 +36,12 @@ spec:
   steps:
     - name: executor
       image: gcr.io/kaniko-project/executor:latest
-      env:
-        - name: "DOCKER_CONFIG"
-          value: "/tekton/home/.docker/"
       command:
         - /kaniko/executor
       args:
         - --dockerfile=$(inputs.params.pathToDockerFile)
         - --destination=${outputs.resources.builtImage.url}
-        - --context=$(inputs.params.pathToContext)
+		- --context=$(inputs.params.pathToContext)
+      env:
+	  - name: DOCKER_CONFIG
+        value: /tekton/home/.docker/
