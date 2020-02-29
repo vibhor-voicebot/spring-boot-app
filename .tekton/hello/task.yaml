@@ -16,17 +16,32 @@ kind: Task
 metadata:
   name: source-to-image-task
 spec:
+  inputs:
+    resources:
+      - name: docker-source
+        type: git
+    params:
+      - name: pathToDockerFile
+        type: string 
+        description: path to dockerfile
+        default: /workspace/docker-source/dockerfile
+	  - name: pathToContext
+		type: string
+		description: path to context
+        default: /workspace/docker-source
   outputs:
     resources:
       - name: builtImage
         type: image
-        params:
-        - name: url
-          value: docker.io/remkohdev/spring-boot-app:1.0.0
   steps:
     - name: executor
-      image: gcr.io/kaniko-project/executor:latest
+	  image: gcr.io/kaniko-project/executor:latest
+      env:
+        - name: "DOCKER_CONFIG"
+          value: "/tekton/home/.docker/"
       command:
         - /kaniko/executor
-      args:
-      - --destination=${outputs.resources.builtImage.url}
+	  args:
+        - --dockerfile=$(inputs.params.pathToDockerFile)
+	    - --destination=${outputs.resources.builtImage.url}
+        - --context=$(inputs.params.pathToContext)
