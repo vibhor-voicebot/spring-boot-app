@@ -41,7 +41,7 @@ spec:
       args:
         - --dockerfile=$(inputs.params.pathToDockerFile)
         - --destination=${outputs.resources.builtImage.url}
-		- --context=$(inputs.params.pathToContext)
+        - --context=$(inputs.params.pathToContext)
       env:
-	  - name: DOCKER_CONFIG
+      - name: DOCKER_CONFIG
         value: /tekton/home/.docker/
