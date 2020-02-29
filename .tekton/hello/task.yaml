@@ -18,28 +18,33 @@ metadata:
 spec:
   inputs:
     resources:
-      - name: git-source
+      - name: src
         type: git
     params:
-      - name: pathToContext
-        description: The path to the build context, used by Kaniko - within the workspace
-        default: /workspace/git-source
-      - name: pathToDockerFile
-        description: The path to the dockerfile to build (relative to the context)
-        default: /workspace/git-source/Dockerfile
       - name: imageUrl
         description: Url of image repository
         default: remkohdev/spring-boot-app
       - name: imageTag
         type: string
         description: Tag to apply to the built image
-        default: 1.0.0
+		default: 1.0.0
+      - name: pathToDockerFile
+        description: The path to the dockerfile to build (relative to the context)
+        default: Dockerfile
+      - name: pathToContext
+        description:
+		  The path to the build context
+      - default: .
+  outputs:
+	resources:
+	  - name: builtImage
+        type: image
   steps:
-    - name: build-and-push
-      image: gcr.io/kaniko-project/executor
+    - name: executor
+      image: gcr.io/kaniko-project/executor:latest
       command:
         - /kaniko/executor
       args:
-        - --dockerfile=$(inputs.params.pathToDockerFile)
-        - --destination=$(inputs.params.imageUrl):$(inputs.params.imageTag)
-        - --context=/workspace/git-source/$(inputs.params.pathToContext)
+      - --dockerfile=${inputs.params.pathToDockerFile}
+      - --destination=${outputs.resources.builtImage.url}
+      - --context=/workspace/src/${inputs.params.pathToContext}
