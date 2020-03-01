@@ -17,23 +17,23 @@ spec:
     - name: imageTag
       description: Tag to apply to the built image
   tasks:
-  - name: hello
-    taskRef:
-      name: hello-task
-  - name: source-to-image
-    serviceAccountName: docker-auth
-    taskRef:
-      name: source-to-image-task
-    params:
-      - name: pathToDockerFile
-        value: "$(params.pathToDockerFile)"
-      - name: pathToContext
-        value: "$(params.pathToContext)"
-      - name: imageUrl
-        value: "$(params.imageUrl)"
-      - name: imageTag
-        value: "$(params.imageTag)"
-    resources:
-      inputs:
-        - name: source-repo
-          resource: source-repo
+    - name: hello
+      taskRef:
+        name: hello-task
+    - name: source-to-image
+      serviceAccountName: docker-auth
+      taskRef:
+        name: source-to-image-task
+      params:
+        - name: pathToDockerFile
+          value: "$(params.pathToDockerFile)"
+        - name: pathToContext
+          value: "$(params.pathToContext)"
+        - name: imageUrl
+          value: "$(params.imageUrl)"
+        - name: imageTag
+          value: "$(params.imageTag)"
+      resources:
+        inputs:
+          - name: source-repo
+            resource: source-repo
