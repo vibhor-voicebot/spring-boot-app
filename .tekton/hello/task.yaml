@@ -33,7 +33,7 @@ spec:
       command:
         - /bin/bash
       args:
-		- -c
+        - -c
         - | "ls -al .."
 ---
 apiVersion: tekton.dev/v1alpha1
