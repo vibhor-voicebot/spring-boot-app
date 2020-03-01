@@ -19,7 +19,7 @@ spec:
   tasks:
     - name: hello
       taskRef:
-	    name: hello-task
+        name: hello-task
     - name: pwd
       taskRef:
         name: pwd-task
