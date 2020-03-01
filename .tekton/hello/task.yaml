@@ -31,7 +31,9 @@ spec:
     - name: ls
       image: ubuntu
       command:
-        - ls
+		- ls
+      args:
+        - -al
 ---
 apiVersion: tekton.dev/v1alpha1
 kind: Task
