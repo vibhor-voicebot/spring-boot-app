@@ -19,8 +19,8 @@ spec:
         name: pipelinerun-$(uid)
       spec:
         pipelineRef:
-		  name: hello-pipeline
+          name: hello-pipeline
         resources:
-		  - name: source-repo
+          - name: source-repo
             resourceRef:
               name: source-repo
