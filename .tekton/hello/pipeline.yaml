@@ -7,7 +7,7 @@ spec:
     - name: source-repo
       type: git
   params:
-    - name: pathToContext
+    - name: pathToContext4
       description: The path to the build context, used by Kaniko - within the workspace
       default: src
     - name: pathToYamlFile
