@@ -3,6 +3,10 @@ kind: TriggerTemplate
 metadata:
   name: hello-trigger-template
 spec:
+  resources:
+    - name: source-repo
+      resourceRef:
+        name: guestbook-git
   resourcetemplates:
     - apiVersion: tekton.dev/v1alpha1
       kind: PipelineRun

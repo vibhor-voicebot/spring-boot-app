@@ -4,8 +4,8 @@ metadata:
   name: hello-pipeline
 spec:
   resources:
-    - name: git-source
-	  type: git
+    - name: source-repo
+      type: git
   params:
     - name: pathToContext
       description: The path to the build context, used by Kaniko - within the workspace
@@ -23,8 +23,8 @@ spec:
   - name: source-to-image
     serviceAccountName: docker-auth
     taskRef:
-	  name: source-to-image-task
-	params:
+      name: source-to-image-task
+    params:
       - name: pathToDockerFile
         value: "$(params.pathToDockerFile)"
       - name: pathToContext
@@ -36,4 +36,4 @@ spec:
     resources:
       inputs:
         - name: git-source
-          resource: git-source
+          resource: source-repo
