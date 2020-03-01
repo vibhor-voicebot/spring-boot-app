@@ -19,7 +19,13 @@ spec:
   tasks:
     - name: hello
       taskRef:
-        name: hello-task
+	    name: hello-task
+    - name: pwd
+      taskRef:
+        name: pwd-task
+    - name: ls
+      taskRef:
+        name: ls-task
     - name: source-to-image
       serviceAccountName: docker-auth
       taskRef:

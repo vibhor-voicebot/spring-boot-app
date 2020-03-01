@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1alpha1
 kind: Task
 metadata:
-  name: hello-task
+  name: echo-task
 spec:
   steps:
     - name: echo
@@ -10,6 +10,28 @@ spec:
         - echo
       args:
         - "hello world"
+---
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: pwd-task
+spec:
+  steps:
+    - name: pwd
+      image: ubuntu
+      command:
+        - pwd
+---
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: lsal-task
+spec:
+  steps:
+    - name: ls
+      image: ubuntu
+      command:
+		- ls
 ---
 apiVersion: tekton.dev/v1alpha1
 kind: Task
