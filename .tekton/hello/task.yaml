@@ -18,7 +18,7 @@ metadata:
 spec:
   inputs:
     resources:
-      - name: git-source
+      - name: source-repo
         type: git
     params:
       - name: pathToDockerFile
@@ -43,7 +43,7 @@ spec:
       args:
         - --dockerfile=${inputs.params.pathToDockerFile}
         - --destination=${inputs.params.imageUrl}:${inputs.params.imageTag}
-        - --context=/workspace/git-source/${inputs.params.pathToContext}
+        - --context=/workspace/source-repo/${inputs.params.pathToContext}
       env:
       - name: DOCKER_CONFIG
         value: /tekton/home/.docker/

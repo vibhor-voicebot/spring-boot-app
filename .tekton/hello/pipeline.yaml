@@ -35,5 +35,5 @@ spec:
         value: "$(params.imageTag)"
     resources:
       inputs:
-        - name: git-source
+        - name: source-repo
           resource: source-repo
