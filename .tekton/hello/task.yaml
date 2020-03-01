@@ -34,7 +34,9 @@ spec:
         - /bin/bash
       args:
         - -c
-        - | "ls -al .."
+        - |
+          ls -al ..
+          echo "done"
 ---
 apiVersion: tekton.dev/v1alpha1
 kind: Task
