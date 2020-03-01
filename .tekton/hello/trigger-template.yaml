@@ -6,7 +6,7 @@ spec:
   resources:
     - name: source-repo
       resourceRef:
-        name: guestbook-git
+        name: git-source
   resourcetemplates:
     - apiVersion: tekton.dev/v1alpha1
       kind: PipelineRun
