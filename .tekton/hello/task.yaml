@@ -35,7 +35,11 @@ spec:
       args:
         - -c
         - |
-          ls -al ..
+		  ls -al ..
+          echo "1"		  
+          ls -al /workspace
+          echo "2"
+          ls -al /usr
           echo "done"
 ---
 apiVersion: tekton.dev/v1alpha1
