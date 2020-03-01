@@ -43,7 +43,7 @@ spec:
           echo "3"
           ls -al /
           echo "4"
-          find . -iname Dockerfile
+          find / -iname Dockerfile
           echo "done"
 ---
 apiVersion: tekton.dev/v1alpha1
