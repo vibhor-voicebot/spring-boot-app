@@ -39,7 +39,11 @@ spec:
           echo "1"		  
           ls -al /workspace
           echo "2"
-          ls -al /usr
+          ls -al /usr/
+          echo "3"
+          ls -al /
+          echo "4"
+          find . -iname Dockerfile
           echo "done"
 ---
 apiVersion: tekton.dev/v1alpha1
