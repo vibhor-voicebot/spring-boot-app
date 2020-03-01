@@ -33,8 +33,8 @@ spec:
       command:
         - ls
       args:
-		- '-al'
-        - '/'
+		- -al
+        - "/"
 ---
 apiVersion: tekton.dev/v1alpha1
 kind: Task
