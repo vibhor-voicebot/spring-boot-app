@@ -3,9 +3,8 @@ kind: PipelineResource
 metadata:
   name: source-repo
 spec:
-  resourceSpec:
-    type: git
-    params:
+  type: git
+  params:
     - name: revision
       value: master
     - name: url
