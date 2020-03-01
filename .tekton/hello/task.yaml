@@ -34,7 +34,7 @@ spec:
         - ls
       args:
 		- -al
-		- "/workspace"
+        - "/workspace"
 ---
 apiVersion: tekton.dev/v1alpha1
 kind: Task
