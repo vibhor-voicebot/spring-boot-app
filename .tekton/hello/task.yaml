@@ -33,12 +33,8 @@ spec:
       command:
         - /bin/bash
       args:
-		- -c "
-		- |
-          echo begin
-		  ls -al /
-		  echo done
-		  "
+		- -c
+        - | "ls -al .."
 ---
 apiVersion: tekton.dev/v1alpha1
 kind: Task
