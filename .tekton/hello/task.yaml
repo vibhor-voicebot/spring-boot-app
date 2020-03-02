@@ -56,7 +56,7 @@ spec:
       - name: pathToDockerFile
         type: string 
         description: path to dockerfile
-        default: /workspace/source-repo/Dockerfile
+        default: ./Dockerfile
       - name: pathToContext
         type: string
         description: path to context
