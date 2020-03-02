@@ -39,15 +39,8 @@ spec:
       args:
         - -c
         - |
-          ls -al ..
           echo "1"		  
-          ls -al /workspace
-          echo "2"
-          ls -al /usr/
-          echo "3"
-          ls -al /
-          echo "4"
-          find / -iname Dockerfile
+          ls -al /workspace/source-repo
           echo "done"
 ---
 apiVersion: tekton.dev/v1alpha1
@@ -63,11 +56,11 @@ spec:
       - name: pathToDockerFile
         type: string 
         description: path to dockerfile
-        default: Dockerfile
+        default: /workspace/source-repo/Dockerfile
       - name: pathToContext
         type: string
         description: path to context
-        default: .
+        default: /workspace/source-repo
       - name: imageUrl
         description: url of image repository
         default: docker.io/remkohdev/spring-boot-app
