@@ -27,6 +27,10 @@ kind: Task
 metadata:
   name: ls-task
 spec:
+  inputs:
+    resources:
+      - name: source-repo
+        type: git
   steps:
     - name: ls
       image: ubuntu
