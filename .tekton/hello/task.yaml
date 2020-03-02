@@ -78,7 +78,7 @@ spec:
       args:
         - "--dockerfile=${inputs.params.pathToDockerFile}"
         - "--destination=${inputs.params.imageUrl}:${inputs.params.imageTag}"
-        - "--context=/workspace/source-repo/${inputs.params.pathToContext}"
+        - "--context=/workspace/github-repo/${inputs.params.pathToContext}"
       env:
       - name: DOCKER_CONFIG
         value: /tekton/home/.docker/
