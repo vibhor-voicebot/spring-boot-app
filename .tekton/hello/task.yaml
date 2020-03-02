@@ -60,7 +60,7 @@ spec:
       - name: pathToContext
         type: string
         description: path to context
-        default: /workspace/source-repo
+        default: /workspace
       - name: imageUrl
         description: url of image repository
         default: docker.io/remkohdev/spring-boot-app
