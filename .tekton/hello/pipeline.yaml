@@ -29,7 +29,7 @@ spec:
       resources:
         inputs:
           - name: source-repo
-            resource: github-repo
+            resource: source-repo
     - name: source-to-image
       serviceAccountName: docker-auth
       taskRef:
@@ -46,4 +46,4 @@ spec:
       resources:
         inputs:
           - name: source-repo
-            resource: github-repo
+            resource: source-repo
