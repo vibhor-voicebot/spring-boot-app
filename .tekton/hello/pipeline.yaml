@@ -26,6 +26,10 @@ spec:
     - name: ls
       taskRef:
         name: ls-task
+      resources:
+        inputs:
+          - name: source-repo
+            resource: source-repo
     - name: source-to-image
       serviceAccountName: docker-auth
       taskRef:
