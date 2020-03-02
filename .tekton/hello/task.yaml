@@ -53,7 +53,7 @@ metadata:
 spec:
   inputs:
     resources:
-      - name: source-repo
+      - name: github-repo
         type: git
     params:
       - name: pathToDockerFile
