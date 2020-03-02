@@ -19,4 +19,4 @@ spec:
         resources:
           - name: source-repo
             resourceRef:
-              name: source-repo
+              name: github-repo
