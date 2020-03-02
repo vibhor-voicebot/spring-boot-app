@@ -6,7 +6,7 @@ spec:
   resources:
     - name: source-repo
       resourceRef:
-        name: github-repo
+        name: source-repo
         type: git
   resourcetemplates:
     - apiVersion: tekton.dev/v1alpha1
@@ -19,4 +19,4 @@ spec:
         resources:
           - name: source-repo
             resourceRef:
-              name: github-repo
+              name: source-repo
