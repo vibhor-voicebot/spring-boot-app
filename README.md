@@ -22,11 +22,15 @@
 ### test Docker
 
 1. docker build -t spring-boot-app .
-1. docker run --name spring-boot-app -d -p 8080:8080 spring-boot-app
-2. curl -X GET "http://localhost:8080/api/hello?name=Kumar"
-3. docker ps -a
-4. docker logs spring-boot-app
-5. docker rm spring-boot-app
+2. docker tag spring-boot-app quay.io/remkohdev/spring-boot-app
+3. docker login quay.io -u remkohdev@gmail.com
+4. docker push quay.io/remkohdev/spring-boot-app
+5. Go to quay.io > repositories > spring-boot-app > Settings > Repository Visibility > make repository public
+6. docker run --name spring-boot-app -d -p 8080:8080 quay.io/remkohdev/spring-boot-app
+7. curl -X GET "http://localhost:8080/api/hello?name=Kumar"
+8. docker ps -a
+9. docker logs spring-boot-app
+10. docker rm spring-boot-app
 
 ### Deploy to OpenShift
 
