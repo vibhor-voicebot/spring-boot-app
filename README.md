@@ -3,7 +3,13 @@
 ## Docker build strategy
 
 1. clone the spring-boot-app example repository,
-2. maven build
+
+    ```
+    git clone https://github.com/remkohdev/spring-boot-app.git
+    cd spring-boot-app
+    ```
+
+2. Test maven build
 
     ```
     mvn clean install
@@ -17,10 +23,10 @@
 8. oc login to your openshift cluster,
 
     ```
-    oc login --token=abc --server=https://c114-e.us-south.containers.cloud.ibm.com:31739
+    oc login --token=abc --server=https://c321d.us-east.containers.cloud.ibm.com:31333
     ```
 
-9. oc new-project oc-docker-build
+9.  oc new-project oc-docker-build
 10. oc new-app . --strategy=docker
 
     ```
@@ -31,7 +37,7 @@
 
 11. oc expose svc spring-boot-app
 12. ROUTE=$(oc get routes -o json | jq -r '.items[0].spec.host')
-13. curl http://$ROUTE
+13. curl "http://$ROUTE/api/hello?name=Tao"
 14. oc delete
 
     ```
