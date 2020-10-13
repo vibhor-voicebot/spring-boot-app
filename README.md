@@ -2,6 +2,8 @@
 
 ## Docker build strategy
 
+### Get source code
+
 1. clone the spring-boot-app example repository,
 
     ```
@@ -9,25 +11,32 @@
     cd spring-boot-app
     ```
 
-2. Test maven build
+### Test Maven
+
+1. Test maven build
 
     ```
     mvn clean install
     ```
 
-3. docker build -t spring-boot-app .
-4. docker run --name spring-boot-app -d -p 8080:8080 spring-boot-app
-5. docker ps -a
-6. docker logs spring-boot-app
-7. docker rm spring-boot-app
-8. oc login to your openshift cluster,
+### test Docker
+
+1. docker build -t spring-boot-app .
+1. docker run --name spring-boot-app -d -p 8080:8080 spring-boot-app
+1. docker ps -a
+1. docker logs spring-boot-app
+1. docker rm spring-boot-app
+
+### Deploy to OpenShift
+
+1. oc login to your openshift cluster,
 
     ```
     oc login --token=abc --server=https://c321d.us-east.containers.cloud.ibm.com:31333
     ```
 
-9.  oc new-project oc-docker-build
-10. oc new-app . --strategy=docker
+1. oc new-project oc-docker-build
+1. oc new-app . --strategy=docker
 
     ```
     oc get bc
@@ -35,10 +44,10 @@
     oc get dc
     ```
 
-11. oc expose svc spring-boot-app
-12. ROUTE=$(oc get routes -o json | jq -r '.items[0].spec.host')
-13. curl "http://$ROUTE/api/hello?name=Tao"
-14. oc delete
+1. oc expose svc spring-boot-app
+1. ROUTE=$(oc get routes -o json | jq -r '.items[0].spec.host')
+1. curl "http://$ROUTE/api/hello?name=Tao"
+1. oc delete
 
     ```
     oc delete project oc-docker-build
