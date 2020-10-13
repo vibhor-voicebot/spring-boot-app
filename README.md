@@ -17,7 +17,7 @@
 8. oc login to your openshift cluster,
 
     ```
-    oc login --token=OaKeDQhbtxNIh-5aWP21WSS8VnaIZYsXl41sQNu5Rk8 --server=https://c114-e.us-south.containers.cloud.ibm.com:31739
+    oc login --token=abc --server=https://c114-e.us-south.containers.cloud.ibm.com:31739
     ```
 
 9. oc new-project oc-docker-build
@@ -29,7 +29,8 @@
     oc get dc
     ```
 
-11. oc delete
+11. oc expose svc spring-boot-app
+12. oc delete
 
     ```
     oc delete project oc-docker-build
