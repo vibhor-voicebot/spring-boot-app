@@ -30,7 +30,9 @@
     ```
 
 11. oc expose svc spring-boot-app
-12. oc delete
+12. ROUTE=$(oc get routes -o json | jq -r '.items[0].spec.host')
+13. curl http://$ROUTE
+14. oc delete
 
     ```
     oc delete project oc-docker-build
