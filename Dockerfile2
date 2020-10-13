@@ -1,0 +1,27 @@
+FROM registry.access.redhat.com/ubi8/openjdk-11
+
+ARG MAVEN_VERSION=3.6.3
+ARG JAR_FILE=target/*.jar
+
+# curl -O needs write permissions
+USER root
+
+# cd WORKDIR/build
+WORKDIR $HOME/build
+
+COPY . .
+RUN mvn clean install -DskipTests
+RUN mv ${JAR_FILE} $HOME/app.jar
+
+# cd $HOME
+WORKDIR $HOME
+
+# clean and rm WORKDIR/build
+RUN rm -rf build &&\
+    rm -rf .m2
+RUN ls -al
+
+# switch back to nonroot user
+USER 1001
+
+ENTRYPOINT ["java","-jar","app.jar"]s

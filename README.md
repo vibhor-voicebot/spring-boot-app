@@ -23,9 +23,10 @@
 
 1. docker build -t spring-boot-app .
 1. docker run --name spring-boot-app -d -p 8080:8080 spring-boot-app
-1. docker ps -a
-1. docker logs spring-boot-app
-1. docker rm spring-boot-app
+2. curl -X GET "http://localhost:8080/api/hello?name=Kumar"
+3. docker ps -a
+4. docker logs spring-boot-app
+5. docker rm spring-boot-app
 
 ### Deploy to OpenShift
 
@@ -52,3 +53,15 @@
     ```
     oc delete project oc-docker-build
     ```
+
+## Set Build Environment
+
+oc new-app . --build-env strategy.dockerStrategy.dockerfilePath=./Dockerfile1 --strategy=docker
+
+## Multi-stage Builds
+
+When you start containerizing an application, it is common to start with one Dockerfile for building images and running containers. It is common to have one Dockerfile for development, and a minimal image for production. This has been referred to as the `builder pattern`, but maintaining two Dockerfiles is not ideal.
+
+In `multi-stage builds`, you use multiple `FROM` statements in your Dockerfile. Each `FROM` statement begins a new stage of the build. You can selectively copy artifacts from one stage to another.
+
+Compare `Dockerfile2` to `Dockerfile`.
